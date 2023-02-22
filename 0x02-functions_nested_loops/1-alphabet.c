@@ -3,11 +3,12 @@
  * print_alphabet - print all alphabelt in lowercase
  * Return: Always 0
 */
-void print_alphabet(void);
+void print_alphabet(void)
 {
-char latter;
-for (latter = 'a'; latter <= 'z'; latter++)
-_putchar(latter);
+char i;
+for (i = 'a'; i <= 'z'; i++)
+{
+_putchar(i);
+}
 _putchar('\n');
-return (0);
 }
