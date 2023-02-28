@@ -6,5 +6,6 @@
  * int protoypes (int)
  */
 void print_numbers(void);
+void swap_numbers(void);
 #endif
 
