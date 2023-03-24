@@ -2,25 +2,40 @@
 #include <stdlib.h>
 
 /**
- * main - program that prints the opcodes of its own main function
+ * main - prints its own opcodes
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * @argc: Counts the number of parameters that go into main
- * @argv: Pointer of array of pointers containing strings entering main
- *
- * Return: 0 on succes, 1 on argv != 2, 2 on negative bytes in argv
+ * Return: Always 0 (Success)
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-int i, bytes;
-char *mainaddr;
-if (argc != 2)
-printf("Error\n"), exit(1);
-bytes = atoi(argv[1]);
-if (bytes < 0)
-printf("Error\n"), exit(2);
-mainaddr = (char *)main;
-for (i = 0; i < bytes - 1; i++)
-printf("%02hhx ", mainaddr[i]);
-printf("%02hhx\n", mainaddr[i]);
-return (0);
-}
+	int bytes, i;
+	char *arr;
+
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
+
+	bytes = atoi(argv[1]);
+
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+
+	arr = (char *)main;
+
+	for (i = 0; i < bytes; i++)
+	{
+		if (i == bytes - 1)
+		{
+			printf("%02hhx\n", arr[i]);
+			break;
+		}
+		printf("%02hhx ", arr[i]);
+	}
+
